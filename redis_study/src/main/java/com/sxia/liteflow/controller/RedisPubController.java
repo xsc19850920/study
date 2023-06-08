@@ -17,12 +17,10 @@ public class RedisPubController {
 
     /**
      * 消息订阅
-     * @param param
-     * @return
      */
     @PostMapping("/pubMessage")
     public ResponseEntity<Object> pubMessage(@RequestBody PubParam param){
-        // 执行主业务
+        // 执行主业务 06-08 update
         redisService.convertAndSend(param.getChannel(), param.getMessage());
         return Response.success("ok");
     }
