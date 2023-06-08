@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.10</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.sxia</groupId>
+	<artifactId>study</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>study</name>
+	<description>study</description>
+	<modules>
+		<module>kafka_study</module>
+		<module>redis_study</module>
+		<module>liteflow_study</module>
+		<module>zookeeper</module>
+		<module>validate</module>
+		<module>jenkins</module>
+		<module>springbootcache</module>
+		<module>mbg</module>
+	</modules>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<skipTests>true</skipTests>
+		<java.version>1.8</java.version>
+		<hutool.version>5.4.0</hutool.version>
+		<docker.maven.plugin.version>1.2.2</docker.maven.plugin.version>
+		<mbg.version>0.0.1-SNAPSHOT</mbg.version>
+
+<!--		<spring-cloud.version>Hoxton.SR5</spring-cloud.version>-->
+<!--		<spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>-->
+		<pagehelper-starter.version>1.4.7</pagehelper-starter.version>
+		<pagehelper.version>5.3.3</pagehelper.version>
+		<druid.version>1.1.23</druid.version>
+		<mybatis-generator.version>1.4.0</mybatis-generator.version>
+<!--		<mybatis.version>3.5.5</mybatis.version>-->
+		<mysql-connector.version>8.0.20</mysql-connector.version>
+<!--		<spring-data-commons.version>2.3.0.RELEASE</spring-data-commons.version>-->
+<!--		<jjwt.version>0.9.0</jjwt.version>-->
+<!--		<docker.host>https://47.94.170.178:2375</docker.host>-->
+<!--		<aliyun-oss.version>2.5.0</aliyun-oss.version>-->
+<!--		<logstash-logback.version>5.3</logstash-logback.version>-->
+<!--		<admin-starter-server.version>2.2.3</admin-starter-server.version>-->
+<!--		<minio.version>7.1.0</minio.version>-->
+<!--		<knife4j.version>2.0.4</knife4j.version>-->
+<!--		<nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>-->
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<!--Hutool Java工具包-->
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
+			</dependency>
+			<!--MyBatis分页插件starter-->
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper-spring-boot-starter</artifactId>
+				<version>${pagehelper-starter.version}</version>
+			</dependency>
+			<!--MyBatis分页插件-->
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper</artifactId>
+				<version>${pagehelper.version}</version>
+			</dependency>
+			<!--集成druid连接池-->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+			<!-- MyBatis 生成器 -->
+			<dependency>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-core</artifactId>
+				<version>${mybatis-generator.version}</version>
+			</dependency>
+
+			<!--Mysql数据库驱动-->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql-connector.version}</version>
+			</dependency>
+			<!--生成模块通用模块-->
+			<dependency>
+				<groupId>com.sxia</groupId>
+				<artifactId>mbg</artifactId>
+				<version>${mbg.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter</artifactId>-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+	</dependencies>
+
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

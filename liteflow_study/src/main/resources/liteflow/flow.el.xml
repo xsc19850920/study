@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow>
+    <nodes>
+        <node id="a"  class="com.sxia.liteflow.cmp.ACmp"/>
+        <node id="b" class="com.sxia.liteflow.cmp.BCmp"/>
+        <node id="c" class="com.sxia.liteflow.cmp.CCmp"/>
+        <node id="d" class="com.sxia.liteflow.cmp.DCmp"/>
+    </nodes>
+
+    <chain name="chain1">
+        THEN(
+        a, FOR(5).DO(b), WHEN(c,d),e,SWITCH(switch).to(f,g),h
+        );
+    </chain>
+</flow>

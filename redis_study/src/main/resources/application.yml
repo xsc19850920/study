@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  application:
+    # 应用名称
+    name: redis-study
+#  data:
+#    redis:
+#      host: 127.0.0.1
+#      port: 6379
+#      password: redis
+#      database: 0
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: redis
+    database: 0
+    jedis:
+      pool:
+        max-idle: 16
+        max-active: 32
+        min-idle: 8
+
+
