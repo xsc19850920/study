@@ -22,7 +22,7 @@ public class RedisPubController {
      */
     @PostMapping("/pubMessage")
     public ResponseEntity<Object> pubMessage(@RequestBody PubParam param){
-        // 执行主业务2
+        // 执行主业务
         redisService.convertAndSend(param.getChannel(), param.getMessage());
         return Response.success("ok");
     }
