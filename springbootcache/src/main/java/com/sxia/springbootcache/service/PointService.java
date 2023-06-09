@@ -46,12 +46,6 @@ public class PointService {
     public void deleteById (Point point) {
         pointMapper.deleteByPrimaryKey(point.getId());
     }
-
-    @Cacheable(cacheNames = "point", key = "#id")
-    public Point selectById(Integer id) {
-        return pointMapper.selectByPrimaryKey(id);
-    }
-
     /**
      * @CachePut 一般更新用
      */
@@ -73,6 +67,12 @@ public class PointService {
         pointMapper.updateByPrimaryKeySelective(point);
         return pointMapper.selectByPrimaryKey(point.getId());
     }
+    @Cacheable(cacheNames = "point", key = "#id")
+    public Point selectById(Integer id) {
+        return pointMapper.selectByPrimaryKey(id);
+    }
+
+
     @Cacheable(
 //            key = "#point.name+':'+#pageable.pageSize+'_'+#pageable.pageNumber",
             cacheResolver = "dynamicPageCacheNames",

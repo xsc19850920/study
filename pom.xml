@@ -42,6 +42,7 @@
 		<mybatis-generator.version>1.4.0</mybatis-generator.version>
 <!--		<mybatis.version>3.5.5</mybatis.version>-->
 		<mysql-connector.version>8.0.20</mysql-connector.version>
+		<cache-as-multi.version>1.2.0</cache-as-multi.version>
 <!--		<spring-data-commons.version>2.3.0.RELEASE</spring-data-commons.version>-->
 <!--		<jjwt.version>0.9.0</jjwt.version>-->
 <!--		<docker.host>https://47.94.170.178:2375</docker.host>-->
@@ -59,6 +60,12 @@
 				<groupId>cn.hutool</groupId>
 				<artifactId>hutool-all</artifactId>
 				<version>${hutool.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.github.ms100</groupId>
+				<artifactId>cache-as-multi</artifactId>
+				<version>${cache-as-multi.version}</version>
 			</dependency>
 			<!--MyBatis分页插件starter-->
 			<dependency>

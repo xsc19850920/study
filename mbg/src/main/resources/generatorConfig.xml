@@ -38,7 +38,7 @@
                              targetProject="mbg/src/main/java"/>
         <!--生成全部表tableName设为%-->
 <!--        <table tableName="%">-->
-        <table tableName="point">
+        <table tableName="user">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

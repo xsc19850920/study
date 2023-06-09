@@ -10,9 +10,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 /**
- * dynamic generates cache name: findAllByUserAndPageable_${userId}
- * <br>
- * use for page<Note> with annotation{@link org.springframework.cache.annotation.CacheEvict}, {@link org.springframework.cache.annotation.Cacheable}
+ * 动态缓存key
  */
 @Component
 public class DynamicPageCacheNames extends SimpleCacheResolver implements CacheResolver {

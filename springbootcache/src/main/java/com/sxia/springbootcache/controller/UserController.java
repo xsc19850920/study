@@ -2,11 +2,13 @@ package com.sxia.springbootcache.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.sxia.model.User;
+import com.sxia.springbootcache.param.RequestVo;
 import com.sxia.springbootcache.service.UserService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user/")
@@ -27,7 +29,10 @@ public class UserController {
     public User updateById(@RequestBody User user){
         return userService.updateById(user);
     }
-
+    @PostMapping("updateByCondition")
+    public List<User> updateByCondition(@RequestBody RequestVo vo){
+        return  userService.updateByCondition(vo.getUserIds());
+    }
     @PostMapping("deleteById")
     public void deleteById(@RequestBody User user){
          userService.deleteById(user);

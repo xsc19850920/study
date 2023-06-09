@@ -1,18 +1,18 @@
 package com.sxia.springbootcache.service;
-
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sxia.mapper.UserMapper;
 import com.sxia.model.User;
 import com.sxia.model.UserExample;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
+import io.github.ms100.cacheasmulti.cache.annotation.CacheAsMulti;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -53,10 +53,6 @@ public class UserService {
         userMapper.deleteByPrimaryKey(user.getId());
     }
 
-    @Cacheable(cacheNames = "user", key = "#id")
-    public User selectById(Integer id) {
-        return userMapper.selectByPrimaryKey(id);
-    }
 
     /**
      * @CachePut 一般更新用
@@ -79,6 +75,30 @@ public class UserService {
         userMapper.updateByPrimaryKeySelective(user);
         return userMapper.selectByPrimaryKey(user.getId());
     }
+
+    @Caching(
+            evict = {@CacheEvict(
+                    cacheResolver = "dynamicPageCacheNames",
+                    allEntries = true),
+
+            },
+            put = @CachePut(key = "#userIds",
+                    cacheNames = "user")
+    )
+    public List<User> updateByCondition(@CacheAsMulti @RequestBody List<Integer> userIds) {
+        UserExample example = new UserExample();
+        example.createCriteria().andIdIn(userIds);
+        User user = new User();
+        user.setStatus(1);
+        userMapper.updateByExampleSelective(user, example);
+        return userMapper.selectByExample(example);
+    }
+
+    @Cacheable(cacheNames = "user", key = "#id")
+    public User selectById(Integer id) {
+        return userMapper.selectByPrimaryKey(id);
+    }
+
     @Cacheable(
 //            key = "#user.name+':'+#pageable.pageSize+'_'+#pageable.pageNumber",
             cacheResolver = "dynamicPageCacheNames",
