@@ -90,6 +90,7 @@ public class UserService {
         user.setStatus(1);
         userMapper.updateByExampleSelective(user, example);
         return userMapper.selectByExample(example);
+
     }
 
     @Cacheable(cacheNames = "user", key = "#id")
