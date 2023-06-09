@@ -12,7 +12,6 @@ import org.springframework.cache.annotation.Caching;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -58,7 +57,6 @@ public class UserService {
      * @CachePut 一般更新用
      */
 //    @CachePut(cacheNames = "user", key = "#user.id")
-
     @Caching(
             evict = {@CacheEvict(
                             condition = "#user!=null",
