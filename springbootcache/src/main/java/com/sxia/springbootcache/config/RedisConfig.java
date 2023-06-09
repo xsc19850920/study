@@ -59,6 +59,12 @@ public class RedisConfig /*extends CachingConfigurerSupport*/ {
     }
 
 
+    @Bean("dynamicPageCacheNames")
+    public DynamicPageCacheNames cacheResolver(RedisCacheManager redisCacheManager) {
+        return new DynamicPageCacheNames(redisCacheManager);
+    }
+
+
 //    @Bean
 //    public RedisService redisService(){
 //        return new RedisServiceImpl();

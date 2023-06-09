@@ -13,6 +13,8 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
     druid:
+      mysql:
+        usePingMethod: false
       initial-size: 10
       max-active: 100
       min-idle: 10
@@ -41,7 +43,8 @@ spring:
     port: 6379
     password: redis
     database: 0
-
+  main:
+    allow-bean-definition-overriding: true
 pagehelper:
   helper-dialect: mysql
   reasonable: true
