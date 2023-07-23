@@ -23,6 +23,8 @@
 		<module>jenkins</module>
 		<module>springbootcache</module>
 		<module>mbg</module>
+		<module>mbg-plus</module>
+		<module>shardingsphere</module>
 	</modules>
 	<packaging>pom</packaging>
 
@@ -30,7 +32,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<skipTests>true</skipTests>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 		<hutool.version>5.4.0</hutool.version>
 		<docker.maven.plugin.version>1.2.2</docker.maven.plugin.version>
 		<mbg.version>0.0.1-SNAPSHOT</mbg.version>
@@ -39,9 +41,7 @@
 <!--		<spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>-->
 		<pagehelper-starter.version>1.4.7</pagehelper-starter.version>
 		<pagehelper.version>5.3.3</pagehelper.version>
-		<druid.version>1.1.23</druid.version>
-		<mybatis-generator.version>1.4.0</mybatis-generator.version>
-<!--		<mybatis.version>3.5.5</mybatis.version>-->
+		<druid.spring.version>1.1.23</druid.spring.version>
 		<mysql-connector.version>8.0.20</mysql-connector.version>
 		<cache-as-multi.version>1.2.0</cache-as-multi.version>
 <!--		<spring-data-commons.version>2.3.0.RELEASE</spring-data-commons.version>-->
@@ -55,6 +55,15 @@
 		<curator.verison>5.2.1</curator.verison>
 <!--		<knife4j.version>2.0.4</knife4j.version>-->
 <!--		<nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>-->
+		<sharding.version>4.1.1</sharding.version>
+		<druid.version>1.1.21</druid.version>
+		<redisson.version>3.12.0</redisson.version>
+
+		<mybatis-generator.version>1.4.0</mybatis-generator.version>
+		<mybatis.version>2.1.1</mybatis.version>
+		<mybatis-plus.version>3.5.3.1</mybatis-plus.version>
+		<mybatis-plus.generator.version>3.5.3.1</mybatis-plus.generator.version>
+		<velocity.version>2.3</velocity.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -90,6 +99,13 @@
 				<artifactId>cache-as-multi</artifactId>
 				<version>${cache-as-multi.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${mybatis.version}</version>
+			</dependency>
+
 			<!--MyBatis分页插件starter-->
 			<dependency>
 				<groupId>com.github.pagehelper</groupId>
@@ -106,14 +122,9 @@
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid-spring-boot-starter</artifactId>
-				<version>${druid.version}</version>
+				<version>${druid.spring.version}</version>
 			</dependency>
-			<!-- MyBatis 生成器 -->
-			<dependency>
-				<groupId>org.mybatis.generator</groupId>
-				<artifactId>mybatis-generator-core</artifactId>
-				<version>${mybatis-generator.version}</version>
-			</dependency>
+
 
 			<!--Mysql数据库驱动-->
 			<dependency>
@@ -121,6 +132,14 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql-connector.version}</version>
 			</dependency>
+			<!-- druid start -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+			<!-- druid end -->
+
 			<!--生成模块通用模块-->
 			<dependency>
 				<groupId>com.sxia</groupId>
@@ -132,6 +151,79 @@
 				<groupId>cn.hutool</groupId>
 				<artifactId>hutool-all</artifactId>
 				<version>${hutool.version}</version>
+			</dependency>
+
+			<!-- shardingsphere jdbc start -->
+			<dependency>
+				<groupId>org.apache.shardingsphere</groupId>
+				<artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+				<version>${sharding.version}</version>
+			</dependency>
+			<!-- shardingsphere jdbc end -->
+
+			<dependency>
+				<groupId>org.redisson</groupId>
+				<artifactId>redisson</artifactId>
+				<version>${redisson.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>io.netty</groupId>
+						<artifactId>netty-transport-native-kqueue</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>io.netty</groupId>
+						<artifactId>netty-transport-native-epoll</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>io.netty</groupId>
+						<artifactId>netty-common</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>io.netty</groupId>
+						<artifactId>netty-codec</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>io.netty</groupId>
+						<artifactId>netty-buffer</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>io.netty</groupId>
+						<artifactId>netty-transport</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>io.netty</groupId>
+						<artifactId>netty-resolver-dns</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>io.netty</groupId>
+						<artifactId>netty-handler</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- MyBatis 生成器 -->
+			<dependency>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-core</artifactId>
+				<version>${mybatis-generator.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus</artifactId>
+				<version>${mybatis-plus.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-generator</artifactId>
+				<version>${mybatis-plus.generator.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity-engine-core</artifactId>
+				<version>${velocity.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

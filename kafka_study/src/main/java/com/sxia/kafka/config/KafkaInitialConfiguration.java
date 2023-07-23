@@ -13,7 +13,7 @@ public class KafkaInitialConfiguration {
     @Bean("test")
     public NewTopic myTopic() {
         return TopicBuilder.name("test")
-                .partitions(10)
+                .partitions(3)
                 .replicas(2)
                 .compact()
                 .build();

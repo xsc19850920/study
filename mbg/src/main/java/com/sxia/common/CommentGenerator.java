@@ -1,4 +1,4 @@
-package com.sxia;
+package com.sxia.common;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
