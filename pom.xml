@@ -24,9 +24,9 @@
 		<module>jenkins</module>
 		<module>springbootcache</module>
 		<module>mbg</module>
+		<module>easyexcel</module>
 		<module>mbg-plus</module>
 		<module>shardingsphere</module>
-		<module>easyexcel</module>
 	</modules>
 
 	<properties>
