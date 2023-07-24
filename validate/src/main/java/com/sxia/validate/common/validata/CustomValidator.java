@@ -15,9 +15,6 @@ public class CustomValidator implements ConstraintValidator<CustomValid,String> 
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        if(!list.contains(value)){
-           return false;
-        }
-        return true;
+        return list.contains(value);
     }
 }
