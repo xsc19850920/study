@@ -2,7 +2,6 @@ package com.sxia.city.mapper;
 
 import com.sxia.city.entity.CityCn;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.sxia.common.BaseDaoMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -16,6 +15,5 @@ import java.util.List;
  * @since 2023-07-23
  */
 @Mapper
-public interface CityCnMapper extends BaseDaoMapper<CityCn> {
-    void batchInsertData(List<CityCn> list);
+public interface CityCnMapper extends BaseMapper<CityCn> {
 }

@@ -16,14 +16,6 @@
         id, name, country_code, district, population
     </sql>
 
-    <!--批量插入-->
-    <insert id="batchInsertData">
-        insert into city_cn(`name`, country_code, district, population)
-        values
-        <foreach collection="list" item="city" separator=",">
-            (#{city.name}, #{city.countryCode},#{city.district}, #{city.population})
-        </foreach>
-    </insert>
 
     <select id="selectAllByPage" resultMap="BaseResultMap" >
         SELECT

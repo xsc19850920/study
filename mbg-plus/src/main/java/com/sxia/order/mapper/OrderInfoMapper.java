@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
  * </p>
  *
  * @author sxia
- * @since 2023-07-23
+ * @since 2023-07-24
  */
 @Mapper
 public interface OrderInfoMapper extends BaseMapper<OrderInfo> {
