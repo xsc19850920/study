@@ -7,7 +7,6 @@
         <artifactId>study</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.sxia</groupId>
     <artifactId>arthas</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>arthas</name>
