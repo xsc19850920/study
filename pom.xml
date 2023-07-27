@@ -27,6 +27,7 @@
 		<module>easyexcel</module>
 		<module>mbg-plus</module>
 		<module>shardingsphere</module>
+		<module>arthas</module>
 	</modules>
 
 	<properties>
