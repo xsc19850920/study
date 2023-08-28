@@ -1,13 +1,11 @@
-package com.sxia.arthas;
+package com.sxia.juc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ArthasApplication {
-
+public class JucApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ArthasApplication.class, args);
+        SpringApplication.run(JucApplication.class, args);
     }
-
 }
